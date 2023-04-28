@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://images.unsplash.com/photo-1516528387618-afa90b13e000?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGdyZWVuJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+    font-family: cursive, sans-serif;
+    background-size: cover;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.app {
+    margin: 20px;
+    width: 500px;
+    background-color: rgb(253, 215, 221);    
+    box-shadow: 0 4px 8px rgba(255,255,255,0.3);    
+    color: #333;
+    border-radius: 10px;
+}
+
+.header {  
+    padding: 16px 16px 14px;  
+    background-color: white;
+    width: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    position: fixed;   
+    max-width: 500px;
+    border-bottom: 1px solid rgb(250, 202, 210);
+    z-index: 1;
+}
+
+.header__title-name , .header__title-singer {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-transform: capitalize;
+}
+
+.header__title-singer {
+    margin: 2px 0 15px 0;
+}
+
+.header__image {
+    width: 100%;
+    height: 250px;    
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    transition: all 0.1s linear;    
+}
+
+.cd-thumb {
+    filter: brightness(1.2) opacity(0.9);
+    box-shadow: 0 5px 8px rgba(0,0,0,0.2);   
+    width: 250px;
+    height: 100%;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;  
+}
+
+.header__navigation {
+   display: flex;
+   justify-content: space-around;
+   width: 80%;
+   align-items: center;
+   cursor: pointer;
+   margin-bottom: 20px;   
+}
+
+.header__btn {
+    font-size: 20px;
+}
+
+.header__btn:hover{
+    opacity: 0.9;
+}
+
+.toggle-play {  
+    color: rgb(255, 75, 105);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__btn--play  , .header__btn--pause {
+    width: 100%;
+    font-size: 50px;
+}
+
+.header__btn--random.active , .header__btn--repeat.active {
+    color: red;
+}
+
+.header__timer {
+    height: 4px;
+    width: 90%;
+    background-color: lightgrey;
+    margin-bottom: 20px;
+    outline: none;  
+    cursor: pointer;  
+}
+
+/* CSS cho phần play-list nhạc */
+
+.music-container {
+    width: 100%;
+                        /* Margin thay đổi +70px theo số lượng bài hát */
+                            /*Xóa một bài hát thì margin -70px*/
+}
+
+.music {
+    margin: 10px 15px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-family: sans-serif;  
+    position: relative;
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+.music:hover {
+    background-color: #dfdada;
+    transition: all ease 0.5s;
+}
+
+/* Tạo cảm giác nhấn chuột vào nhạc bằng cách thai đổi opacity */
+.music:active {
+    opacity: 0.9;
+    transition : all ease-in-out 0.5s;
+}
+
+.music__img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.music__name , .music__singer {
+    margin: 0 10px;
+    text-transform: capitalize;
+}
+
+.music.playing {
+    background-color: rgb(255, 75, 105);
+    color: whitesmoke;
+    transition: all linear 1.5s;
+}
+
+.option {
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.option:hover {
+    background-color: #e4caca;
+}
+

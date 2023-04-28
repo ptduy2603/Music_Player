@@ -83,13 +83,7 @@ const app = {
         singer: "mono"
     },
 
-    {
-        id: 9,
-        name: "Hãy trao cho anh",
-        singer: "Sơn Tùng MTP ft snoop dogg "
-    },
-
-    ],
+   ],
 
     renderMusic : function()
     {

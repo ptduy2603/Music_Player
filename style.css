@@ -1,3 +1,10 @@
+:root {
+    --primary-color : #0099ff;
+    --header-color :  #e6f5ff;
+    --background-color : #e6f5ff;
+    --header-height : 480px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -5,7 +12,7 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-image: url("https://images.unsplash.com/photo-1516528387618-afa90b13e000?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGdyZWVuJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+    background-image: url("./music_image/background.gif");
     font-family: cursive, sans-serif;
     background-size: cover;
 }
@@ -16,24 +23,26 @@ body {
 
 .app {
     margin: 20px;
-    width: 500px;
-    background-color: rgb(253, 215, 221);    
-    box-shadow: 0 4px 8px rgba(255,255,255,0.3);    
+    max-width: 500px;
+    width: 100%;
+    background-color: var(--background-color);    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);    
     color: #333;
     border-radius: 10px;
 }
 
 .header {  
     padding: 16px 16px 14px;  
-    background-color: white;
+    background-color: var(--header-color);
     width: 100%;
+    max-height: var(--header-height);
     top: 0;
     display: flex;
     flex-direction: column;
     align-items: center; 
     position: fixed;   
     max-width: 500px;
-    border-bottom: 1px solid rgb(250, 202, 210);
+    border-bottom: 1px solid rgb(255,255,255,0.3);
     z-index: 1;
 }
 
@@ -86,19 +95,21 @@ body {
 }
 
 .toggle-play {  
-    color: rgb(255, 75, 105);
+    color: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.header__btn--play  , .header__btn--pause {
+.header__btn--play , 
+.header__btn--pause {
     width: 100%;
     font-size: 50px;
 }
 
-.header__btn--random.active , .header__btn--repeat.active {
-    color: red;
+.header__btn--random.active , 
+.header__btn--repeat.active {
+    color: var(--primary-color);
 }
 
 .header__timer {
@@ -111,16 +122,15 @@ body {
 }
 
 /* CSS cho phần play-list nhạc */
-
 .music-container {
     width: 100%;
-                        /* Margin thay đổi +70px theo số lượng bài hát */
-                            /*Xóa một bài hát thì margin -70px*/
+    max-width: 500px;
+    margin-top: calc(var(--header-height) + 600px);
 }
 
 .music {
     margin: 10px 15px;
-    background-color: white;
+    background-color: #b3e0ff;
     display: flex;
     align-items: center;
     padding: 10px;
@@ -131,7 +141,7 @@ body {
 }
 
 .music:hover {
-    background-color: #dfdada;
+    background-color: #66c2ff;
     transition: all ease 0.5s;
 }
 
@@ -154,7 +164,7 @@ body {
 }
 
 .music.playing {
-    background-color: rgb(255, 75, 105);
+    background-color: var(--primary-color);
     color: whitesmoke;
     transition: all linear 1.5s;
 }
@@ -169,5 +179,17 @@ body {
 
 .option:hover {
     background-color: #e4caca;
+}
+
+/* responsive */
+@media screen and (max-width: 376px) {
+    .header {
+        width: 318.4px;
+        padding: 0;
+    }
+
+    .music-container  {
+        margin-top: calc(var(--header-height) + 500px);
+    }
 }
 

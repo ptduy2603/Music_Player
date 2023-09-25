@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomBtn = $('.header__btn--random');
     const repeatBtn = $('.header__btn--repeat');
     const rainAudioElement = $('.rain-effect');
+    const cityAudioElement = $('.city-effect')
+  
 
     // create rotate event
     const cdThumbAnimate = headerImg.querySelector('.cd-thumb').animate([
@@ -101,10 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         renderMusic : function()
         {
+            // extra effects setup
+            rainAudioElement.volume = 0.3;
+            cityAudioElement.volume = 0.1;
+            rainAudioElement.play();
+            cityAudioElement.play();
+            
             const _this = this;
             headerElement.offsetWidth = containerElement.offsetWidth
-            rainAudioElement.volume = 0.3;
-            rainAudioElement.play();
             // lấy ra mã html
             const htmls = this.songs.map((song, index)=> {
                 return `<div class="music ${index === this.currentIndex?'playing':""}">
@@ -127,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     // Lúc này khi click vào option thì chặn được hiệu ứng chuyển bài 
                     e.stopPropagation();
-                    // show options (remove + ...)
                 }
             })
             
@@ -371,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         start ()
-        {
+        {          
             // Tải thông tin bài hát đầu tiên vào UI và thẻ audio
             this.loadCurrentSong();
 

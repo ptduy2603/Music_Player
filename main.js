@@ -102,7 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
         renderMusic : function()
         {
             const _this = this;
+            headerElement.offsetWidth = containerElement.offsetWidth
             rainAudioElement.volume = 0.3;
+            rainAudioElement.play();
             // lấy ra mã html
             const htmls = this.songs.map((song, index)=> {
                 return `<div class="music ${index === this.currentIndex?'playing':""}">
@@ -303,14 +305,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.target.classList.toggle('active', _this.isRepeat);
             }
 
-            // Hiệu ứng kéo bài hát đang phát lên phạm vi nhìn thấy của màn hình
-            // Hiệu ứng click vào option không chuyển bài khác 
-
+            // Khi resize music container thì header phải resize theo luôn bằng
+            window.onresize = (event) => {
+                headerElement.offsetWidth = containerElement.offsetWidth
+            }
                 
 
         },    
         
-        getCurrentSong : function()
+        getCurrentSong ()
         {
             return this.songs[this.currentIndex];
         },
@@ -326,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
             audioElement.src = `./music_list/${currentSong.id}.mp3`;
         },
         
-        moveNextSong : function()
+        moveNextSong ()
         {
             // hàm này là hàm để di chuyển đến bài hát tiếp theo
             this.currentIndex += 1;
@@ -340,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.scrollActiveSong();
         },
 
-        movePreviousSong : function()
+        movePreviousSong ()
         {
             this.currentIndex--;
             if(this.currentIndex < 0)
